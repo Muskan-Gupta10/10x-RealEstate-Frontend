@@ -21,6 +21,7 @@
 .userid {
     float: left;
     margin-top: 3%;
+    margin-left: 3%;
 }
 
 .username {
@@ -32,4 +33,13 @@
 .searchbar {
     margin-top: 10%;
     margin-left: -78%;
+}
+
+.table_image {
+    height: 20px;
+    width: 25px;
+}
+
+.table_image {
+    margin-left: 10px;
 }

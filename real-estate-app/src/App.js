@@ -1,9 +1,11 @@
 import './App.css';
-import PropertyView from './Components/PropertyView';
+import InfoHeader from './Components/InfoHeader';
+import ViewComponent from './Components/ViewComponent';
 
 function App() {
   return <>
-    <PropertyView />
+    {/* <PropertyView /> */}
+    <ViewComponent />
   </>
 }
 
