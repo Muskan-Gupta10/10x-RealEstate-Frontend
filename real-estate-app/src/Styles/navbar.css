@@ -1,0 +1,29 @@
+.nav-item {
+    display: flex;
+    margin: 5% 15%
+
+}
+
+.navbar-part {
+    width: 20%;
+}
+
+.nav {
+    margin-top: 4%;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.ele-images {
+    height: 25px;
+    width: 20px;
+    margin-top: 5%;
+}
