@@ -14,7 +14,7 @@
 
 .header {
     height: 15vh;
-    width: 80%;
+    width: 82vw;
     border-bottom: 1px solid;
 }
 
@@ -31,5 +31,5 @@
 
 .searchbar {
     margin-top: 10%;
-    margin-left: -80%;
+    margin-left: -78%;
 }
