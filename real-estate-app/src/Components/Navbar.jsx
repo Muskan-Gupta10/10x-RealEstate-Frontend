@@ -15,40 +15,40 @@ export default function Navbar() {
             <h1>LOGO</h1>
         </div>
         <div>
-          <ul class="nav flex-column">
-            <li class="nav-item navbar-element">
+          <ul className="nav flex-column">
+            <li className="nav-item navbar-element">
               <img src={property_image} alt="not found" className="ele-images"/>
-              <a class="nav-link active" href="/">
+              <a className="nav-link active" href="/">
                 Property
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <img src={assistance_image} alt="not found" className="ele-images"/>
-              <a class="nav-link" href="/">
+              <a className="nav-link" href="/">
                 Assistance
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <img src={received_image} alt="not found" className="ele-images"/>  
-              <a class="nav-link" href="/">
+              <a className="nav-link" href="/">
                 Received Interest
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <img src={sent_image} alt="not found" className="ele-images"/>
-              <a class="nav-link" href="/">
+              <a className="nav-link" href="/">
                 Sent Interest
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <img src={views_image} alt="not found" className="ele-images"/>
-              <a class="nav-link" href="/">
+              <a className="nav-link" href="/">
                 Property Views
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <img src={tarrif_image} alt="not found" className="ele-images"/>
-              <a class="nav-link" href="/">
+              <a className="nav-link" href="/">
                 Tarrif Plan
               </a>
             </li>
