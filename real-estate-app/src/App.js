@@ -1,9 +1,9 @@
 import './App.css';
-import PropertyView from './Components/PropertyView';
+import Navbar from './Components/Navbar';
 
 function App() {
   return <>
-    <PropertyView />
+    <Navbar />
   </>
 }
 
