@@ -1,11 +1,11 @@
 import './App.css';
-import InfoHeader from './Components/InfoHeader';
-import ViewComponent from './Components/ViewComponent';
+import Navbar from "../src/Components/Navbar";
+import PropertyView from "../src/Components/PropertyView"
+import Header from './Components/Header';
 
 function App() {
   return <>
-    {/* <PropertyView /> */}
-    <ViewComponent />
+    <PropertyView />
   </>
 }
 
