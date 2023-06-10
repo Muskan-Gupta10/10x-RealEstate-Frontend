@@ -1,0 +1,79 @@
+#container{
+    background-color:  #F5F5F5;
+}
+#formContainer{
+    position:absolute;
+    background-color:  #F5F5F5;
+    height: 60vh;
+    width:75vw;
+    margin-top: 250px;
+    margin-left: 300px;
+    border-radius: 20px;
+}
+#footerbtns{
+    display: flex;
+    height: 70px;
+    width: 800px;
+    margin-top: 60vh;
+    
+    
+}
+#bt1,#bt2{
+    position:absolute;
+    padding: 10px 50px 10px;
+    border-radius: 500px;
+    color:white;
+    margin-right: 500px;
+    height: 50px;
+    width: 180px;
+    margin-top: 86.5vh;
+    
+   
+}
+#bt1{
+    background-color:#6AB4F8 ;
+    border-color: #6AB4F8;
+    margin-left: 43vw; 
+    
+}
+#bt2{
+    background-color:#4C57B6 ;
+    border-color: #4C57B6;
+    padding: 10px 18px 10px;
+    margin-left: 57vw; 
+}
+
+.selected{
+    display: none;
+}
+
+#details{
+    display: flex;
+}
+#section1{
+ float: left;
+ width:50%;
+padding-left: 50px;
+ margin-top: 13px;
+ 
+}
+#section2{
+    float: right;
+    width:50%;
+    padding-left: 50px;
+    margin-top: 13px;
+   }
+.propertyType,.price,.propertyAge,.propDes,.negotiable,.ownership,.propApproved,.bankloan{
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+#propertyType,#price,#propertyAge,#propDes,#negotiable,#ownership,#propApproved,#bankloan{
+    width:500px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: lightgray ;
+}
+#formContainer{
+    display: flex;
+}
