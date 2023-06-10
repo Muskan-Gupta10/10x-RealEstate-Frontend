@@ -4,6 +4,7 @@ import "../Styles/propertyview.css";
 import eye from "../Images/Navbar_Images/eye.png";
 import edit from "../Images/Table_Images/pencil.png";
 import property_image from "../Images/Table_Images/gallary.png";
+import Header from "./Header";
 
 export default function PropertyView() {
   let [showAll, setShowAll] = useState(true);
@@ -64,16 +65,7 @@ export default function PropertyView() {
     <>
       <div className="property-view">
         <Navbar />
-        <div className="header">
-          <div className="userid">USER ID: 55448877</div>
-          <div className="username">
-            <select name="users" id="users">
-              <option value="user1">User 1</option>
-              <option value="user2">User 2</option>
-              <option value="user3">User 3</option>
-            </select>
-          </div>
-        </div>
+        <Header />
         <div className="searchbar">
           <form className="d-flex" role="search" onSubmit={searchActivate}>
             <input
@@ -106,7 +98,7 @@ export default function PropertyView() {
               </tr>
             </thead>
             <tbody>
-              {showAll === true &&
+              {(showAll === true || searchData === "") &&
                 filteredData.map((ele) => {
                   return (
                     <tr key={ele.id}>
