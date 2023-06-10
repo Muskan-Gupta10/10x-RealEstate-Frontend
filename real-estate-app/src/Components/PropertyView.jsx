@@ -98,7 +98,7 @@ export default function PropertyView() {
               </tr>
             </thead>
             <tbody>
-              {(showAll === true || searchData === "") &&
+              {showAll === true &&
                 filteredData.map((ele) => {
                   return (
                     <tr key={ele.id}>
