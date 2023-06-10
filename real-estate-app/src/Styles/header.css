@@ -1,0 +1,17 @@
+.header {
+    height: 15vh;
+    width: 82vw;
+    border-bottom: 1px solid;
+}
+
+.userid {
+    float: left;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.username {
+    float: right;
+    margin-right: 3%;
+    margin-top: 3%;
+}
