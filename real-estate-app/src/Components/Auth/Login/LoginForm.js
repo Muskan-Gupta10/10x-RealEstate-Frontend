@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, Router } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import "./login.css";
@@ -50,7 +50,6 @@ export default function LoginForm() {
 
   return (
     <>
-      <Router>
       <div className="login-container">
         <div className="login-form">
           <h1>Real Estate</h1>
@@ -85,7 +84,6 @@ export default function LoginForm() {
           </Link>
         </h3>
       </div>
-      </Router>
     </>
   );
 }
