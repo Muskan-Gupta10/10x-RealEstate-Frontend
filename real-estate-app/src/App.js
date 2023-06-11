@@ -1,11 +1,9 @@
-import PropertyView from "./Components/PropertyView"
-import Generalinfo from './Components/Generalinfo'
-
+import PropertyView from './Components/PropertyView'
 
 export default function App(){
   return(
     <>
-    <Generalinfo/>
+    <PropertyView />
     </>
   )
 }
