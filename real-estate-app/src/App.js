@@ -1,12 +1,12 @@
-import './App.css';
-import InfoHeader from './Components/InfoHeader';
-import ViewComponent from './Components/ViewComponent';
+import PropertyDetails from './Components/PropertyDetails'
+import PropertyView from './Components/PropertyView'
+import Generalinfo from "./Components/Generalinfo"
 
-function App() {
-  return <>
-    {/* <PropertyView /> */}
-    <ViewComponent />
-  </>
+
+export default function App(){
+  return(
+    <>
+      <PropertyView />
+    </>
+  )
 }
-
-export default App;
