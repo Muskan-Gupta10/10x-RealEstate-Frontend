@@ -4,7 +4,7 @@ import PropertyView from './Components/PropertyView'
 export default function App(){
   return(
     <>
-    <PropertyDetails />
+      <PropertyView />
     </>
   )
 }
