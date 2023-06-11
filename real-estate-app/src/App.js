@@ -6,7 +6,7 @@ import Generalinfo from "./Components/Generalinfo"
 export default function App(){
   return(
     <>
-    <PropertyDetails />
+      <PropertyView />
     </>
   )
 }

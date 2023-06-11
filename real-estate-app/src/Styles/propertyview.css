@@ -5,7 +5,7 @@
 .property-table {
     flex: 1;
     margin-top: 15%;
-    margin-left: -20%;
+    margin-left: -22%;
 }
 
 .property-table thead th {
@@ -14,7 +14,7 @@
 
 .searchbar {
     margin-top: 10%;
-    margin-left: -78%;
+    margin-left: 5%;
 }
 
 .table_image {
