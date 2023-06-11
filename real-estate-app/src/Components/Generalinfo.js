@@ -1,10 +1,9 @@
-import React from 'react';
-//import "../Styles/InfoHeader.css";
+import React from 'react'
 
-export default function Generalinfo(){
-    return(
-        <>
-        <h1>hi</h1>
-        </>
-    )
+export default function Generalinfo() {
+  return (
+    <div>
+      <h1>Hello</h1>
+    </div>
+  )
 }
