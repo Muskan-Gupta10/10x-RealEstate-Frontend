@@ -1,10 +1,11 @@
-#pd{
-    width:170px;
+#li{
+    width:150px;
 height: 50px;
 background: #6AB4F8;
 box-shadow: 0px 13px 25px rgba(0, 0, 0, 0.15);
 border-radius: 50px;
 text-align: center;
+margin-top: -3.5px;
 }
 
 #container{
@@ -13,21 +14,14 @@ text-align: center;
 #formContainer{
     position:absolute;
     background-color:  #F5F5F5;
-    height: 80vh;
+    height: 60vh;
     width:75vw;
     margin-top: 250px;
     margin-left: 300px;
     border-radius: 20px;
     color: rgb(87, 80, 80)
 }
-#footerbtns{
-    display: flex;
-    height: 70px;
-    width: 800px;
-    margin-top: 60vh;
-    
-    
-}
+
 #bt1,#bt2{
     position:absolute;
     padding: 10px 50px 10px;
@@ -36,7 +30,7 @@ text-align: center;
     margin-right: 500px;
     height: 50px;
     width: 180px;
-    margin-top: 95.5vh;
+    margin-top: 85.5vh;
     
    
 }
@@ -44,7 +38,7 @@ text-align: center;
     background-color:#6AB4F8 ;
     border-color: #6AB4F8;
     margin-left: 43vw; 
-   
+    
 }
 #bt2{
     background-color:#4C57B6 ;
@@ -73,18 +67,15 @@ padding-left: 50px;
     padding-left: 50px;
     margin-top: 13px;
    }
-.length,.breadth,.total_area,.area_unit,.no_of_bhk,.no_of_floors,.attached,.western_toilet,.furnished,.car_parking,.lift,.electricity,.facing{
-    padding-top: 5px;
-    padding-bottom: 5px;
+
+.email,.city,.area,.pincode,.address,.landmark,.latitude,.longitude{
+    padding-top: 15px;
+    padding-bottom: 15px;
 
 }
-
-#length,#breadth,#total_area,#area_unit,#no_of_bhk,#no_of_floors,#attached,#western_toilet,#furnished,#car_parking,#lift,#electricity,#facing{
+#email,#city,#area,#pincode,#address,#landmark,#latitude,#longitude{
     width:500px;
-    height: 35.5px;
+    height: 40px;
     border-radius: 5px;
     border-color: lightgray ;
-}
-#formContainer{
-    display: flex;
 }
