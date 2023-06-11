@@ -154,7 +154,7 @@ export default function BasicInfo() {
           
         </div>
         <button id="bt1">Cancel</button>
-            <button id="bt2" onChange={handleSubmit}>Save & Continue</button>
+            <button id="bt2" onClick={handleSubmit}>Save & Continue</button>
       
             </div>
             <Navbar/>

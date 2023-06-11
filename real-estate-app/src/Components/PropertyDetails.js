@@ -199,7 +199,7 @@ return(
 
   </div>
             <button id="bt1">Previous</button>
-            <button id="bt2" onChange={handleSubmit}>Save & Continue</button>
+            <button id="bt2" onClick={handleSubmit}>Save & Continue</button>
     </div>
     <Navbar/>
     </>
