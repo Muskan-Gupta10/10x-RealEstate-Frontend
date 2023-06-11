@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import "../Styles/propertyview.css";
 import eye from "../Images/Navbar_Images/eye.png";
@@ -7,8 +7,6 @@ import property_image from "../Images/Table_Images/gallary.png";
 import Header from "./Header";
 
 export default function PropertyView() {
-  let [showAll, setShowAll] = useState(true);
-  let [searchData, setSearchData] = useState("");
   let [propertyData,setPropertyData] = useState([]);
 
   useEffect(() => {
@@ -18,22 +16,27 @@ export default function PropertyView() {
   function getAll() {
     fetch("http://localhost:8081/postDetails/getAll", {
       method: "GET",
-    }).then((res) => res.json()).then((e) => {
-      setPropertyData(e.data);
+    }).then((res) => res.json())
+    .then((e) => {
+      let updatedData = e.data.map((item) => ({
+        ...item,
+        view: 0,
+        status: parseInt(Math.random() * 10000) % 2 === 0 ? "Sold" : "UnSold"
+      }));
+      setPropertyData(updatedData);
     })
   }
 
-  function searchActivate(e) {
-    e.preventDefault();
-    setShowAll(false);
+  function handleViews(index) {
+    setPropertyData((prevData) => {
+      let updatedData = [...prevData];
+      updatedData[index] = {
+        ...updatedData[index],
+        view: updatedData[index].view + 1
+      }
+      return updatedData;
+    });
   }
-
-  const filteredData = useMemo(() => {
-    if (!showAll) {
-      return propertyData.filter((ele) => ele.id.toString() === searchData);
-    }
-    return propertyData;
-  }, [showAll, searchData]);
 
   return (
     <>
@@ -41,15 +44,12 @@ export default function PropertyView() {
         <Navbar />
         <Header />
         <div className="searchbar">
-          <form className="d-flex" role="search" onSubmit={searchActivate}>
+          <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
-              onChange={(e) => {
-                setSearchData(e.target.value);
-              }}
             />
             <button className="btn btn-outline-success" type="submit">
               Search
@@ -72,8 +72,8 @@ export default function PropertyView() {
               </tr>
             </thead>
             <tbody>
-              {showAll === true &&
-                filteredData.map((ele) => {
+              {propertyData.map((ele,index) => {
+                console.log(ele.status);
                   return (
                     <tr key={ele.name}>
                       <td>{ele.name}</td>
@@ -87,43 +87,18 @@ export default function PropertyView() {
                       <td>{ele.property_type}</td>
                       <td>{ele.mobile}</td>
                       <td>{ele.area}</td>
-                      <td>1</td>
-                      <td>UnSold</td>
+                      <td>{ele.view}</td>
+                      <td>{ele.status}</td>
                       <td>{ele.city}</td>
                       <td className="action_images"> 
-                        <img src={eye} alt="Not Found" className="table_image" />
+                        <img src={eye} alt="Not Found" className="table_image" onClick={() => {
+                          handleViews(index);
+                        }}/>
                         <img src={edit} alt="Not Found" className="table_image" />
                       </td>
                     </tr>
                   );
                 })}
-              {showAll === false &&
-                filteredData
-                  .filter((ele) => ele.id.toString() === searchData)
-                  .map((ele) => {
-                    return (
-                      <tr key={ele.name}>
-                      <td>{ele.name}</td>
-                      <td>
-                        <img
-                          src={property_image}
-                          alt="not found"
-                          className="table_image"
-                        />
-                      </td>
-                      <td>{ele.property_type}</td>
-                      <td>{ele.mobile}</td>
-                      <td>{ele.area}</td>
-                      <td>1</td>
-                      <td>UnSold</td>
-                      <td>{ele.city}</td>
-                      <td className="action_images"> 
-                        <img src={eye} alt="Not Found" className="table_image" />
-                        <img src={edit} alt="Not Found" className="table_image" />
-                      </td>
-                    </tr>
-                    );
-                  })}
             </tbody>
           </table>
         </div>
