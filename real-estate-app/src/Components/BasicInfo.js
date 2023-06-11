@@ -4,58 +4,40 @@ import Navbar from "./Navbar";
 import "../Styles/BasicInfo.css";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 export default function BasicInfo() {
  // const navigate=useNavigate()
-  const [propertyType, setPropertyType] = useState("Select Property Type");
-  const [Price, setPrice] = useState("");
-  const [propertyDescription, setPropertyDescreption] = useState("");
-  const [propertyAge, setPropertyAge] = useState("");
-  const [negotiable, setNegotiable] = useState("");
-  const [owenership, setOwnership] = useState("");
-  const [propertyApproved, setPropertyApproved] = useState("");
-  const [bankLoan, setBankLoan] = useState("");
+ const [data, setdata] = useState({
+  property_type: "",
+  negotiable: "",
+  ownership: "",
+  price: "",
+  property_age: "",
+  property_approved: "",
+  property_description: "",
+  bank_loan: "",
+});
 
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    fetch("http://localhost:8081",{method:"Post",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body:JSON.stringify({
-      property_type:propertyType ,
-    price: Price,
-    property_age: propertyAge,
-    property_description: propertyDescription,
-    negotiable: negotiable,
-    ownership: owenership,
-    property_approved: propertyApproved,
-    bank_loan: bankLoan
-    })})
-    .then(res=>
-      res.json())
-      .then(res=>
-        //  console.log(res)
-        {
-        alert("post added successfully")
-        //navigate("/propDetails")
+    localStorage.setItem("Basic_Info", JSON.stringify(data));
+    //navigate("/propertydeatils");
+        
         }
-      )
-      .catch(err=>{
-        console.log(err)
-      })
-  }
+     
+  
 
 
   return (
     <>
-      
+      <Header/>
       <div id="container">
       
         <div className="navbar">
           <div className="navheading">
-            <h1>Add New Property</h1>
+            <h2>Add New Property</h2>
           </div>
           <div className="sections">
             <span id="bi">
@@ -101,7 +83,9 @@ export default function BasicInfo() {
           <section id='section1'>
             <div className="propertyType">
               <label for="propertyType">Property Type</label><br/>
-              <select  id="propertyType" onChange={(e) => {setPropertyType(e.target.value)}}>
+              <select  id="propertyType"  onChange={(e) =>
+                setdata({ ...data, property_type: e.target.value })
+              }>
               <option value="" className='selected'>Select Property Type</option>
                 <option>Plot</option>
                 <option>House</option>
@@ -111,17 +95,17 @@ export default function BasicInfo() {
             <div className="price">
                 <label for='price' id="lprice">Price</label>
                 <br/>
-                <input id='price' placeholder='Example : 10000' type="text" onChange={(e)=>{setPrice(e.target.value)}}/>
+                <input id='price' placeholder='Example : 10000' type="text" onChange={(e)=>setdata({...data, price: e.target.value})}/>
             </div>
             <div className="propertyAge">
                 <label for='propertyAge'>Property Age</label>
                 <br/>
-                <input id='propertyAge' placeholder='age' type="number" onChange={(e)=>{setPropertyAge(e.target.value)}}/>
+                <input id='propertyAge' placeholder='age' type="number" onChange={(e)=>setdata({...data, property_age : e.target.value})}/>
             </div>
             <div className="propDes">
                 <label for='propDes'>Property Description</label>
                 <br/>
-                <input id='propDes'  type="text" onChange={(e)=>{setPropertyDescreption(e.target.value)}}/>
+                <input id='propDes'  type="text" onChange={(e)=>setdata({...data, property_description: e.target.value})}/>
             </div>
             </section>
 
@@ -129,7 +113,7 @@ export default function BasicInfo() {
             <div className="negotiable">
                 <label for="negotiable">Negotiable</label>
                 <br/>
-                <select  id="negotiable" onChange={(e) => {setNegotiable(e.target.value)}}>
+                <select  id="negotiable" onChange={(e)=>setdata({...data, negotiable: e.target.value})}>
                     <option value="" className='selected'>Select Negotiable </option>
                     <option>Negotiable</option>
                     <option>Non Negotiable</option>
@@ -139,13 +123,13 @@ export default function BasicInfo() {
             <div className="ownership">
                 <label for='ownership'>Ownership</label>
                 <br/>
-                <input id='ownership' placeholder='Ownership' type="text" onChange={(e)=>{setOwnership(e.target.value)}}/>
+                <input id='ownership' placeholder='Ownership' type="text" onChange={(e)=>setdata({...data, ownership: e.target.value})}/>
             </div>
 
             <div className="propApproved">
                 <label for="propApproved">Property Approved</label>
                 <br/>
-                <select  id="propApproved" onChange={(e) => {setPropertyApproved(e.target.value)}}>
+                <select  id="propApproved" onChange={(e)=>setdata({...data, property_approved: e.target.value})}>
                     <option value="" className='selected'>Select Property Approved </option>
                     <option>True</option>
                     <option>False</option>
@@ -155,7 +139,7 @@ export default function BasicInfo() {
             <div className="bankloan">
             <label for="bankloan">Bank Loan</label>
             <br/>
-            <select  id="bankloan" onChange={(e) => {setBankLoan(e.target.value)}}>
+            <select  id="bankloan" onChange={(e)=>setdata({...data, bank_loan: e.target.value})}>
                 <option value="" className='selected'>Bank Loan </option>
                 <option>Bank Loan Taken</option>
                 <option>No Bank Loan Taken</option>
