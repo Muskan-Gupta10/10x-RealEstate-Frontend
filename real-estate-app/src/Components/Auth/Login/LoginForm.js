@@ -69,12 +69,13 @@ export default function LoginForm() {
               type="password"
               placeholder="Password"
             />
-            <button type="submit" id="login-signin">
-            Sign In
-          </button>
-            
+            <Link className="login-signup" to = "/propertyview">
+              <button id="login-signin">
+                Sign In
+              </button>
+            </Link>
           </form>
-          <Link className="login-signup" to="/signup">
+          <Link className="login-signup" to = "/signup">
             Sign Up
           </Link>
         </div>
