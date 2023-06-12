@@ -1,7 +1,14 @@
 import React from "react";
 import "../Styles/viewcomponent.css";
+import { useLocation } from "react-router-dom";
 
-export default function ViewComponent(props) {
+export default function ViewComponent() {
+
+  let location = useLocation();
+
+  let dataToDisplay = location.state?.data;
+  console.log(location);
+
   return (
     <>
       <div className="title">

@@ -8,6 +8,7 @@ import BasicInfo from './Components/BasicInfo'
 import LoginForm from './Components/Auth/Login/LoginForm'
 import Logout from './Components/Auth/Logout/Logout'
 import Signup from './Components/Auth/SignUp/Signup'
+import ViewComponent from "./Components/ViewComponent";
 
 
 export default function App(){
@@ -23,6 +24,7 @@ export default function App(){
           <Route path="/generalinfo" element={<Generalinfo/>}></Route>
           <Route path="/propertydetails" element={<PropertyDetails/>}></Route>
           <Route path="/locationinfo" element={<LocationInfo/>}></Route>
+          <Route path="/viewcomponent" element={<ViewComponent />} />
         </Routes>
       </BrowserRouter>
     </>
