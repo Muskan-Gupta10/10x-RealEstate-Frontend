@@ -30,7 +30,7 @@ export default function LoginForm() {
             expires: new Date(Date.now() + 3.6e6),
           });
 
-          navigate("/");
+          navigate("/propertyview");
         })
         .catch((err) => {
           console.log(err);
@@ -70,8 +70,9 @@ export default function LoginForm() {
               placeholder="Password"
             />
             <button type="submit" id="login-signin">
-              Sign In
-            </button>
+            Sign In
+          </button>
+            
           </form>
           <Link className="login-signup" to="/signup">
             Sign Up

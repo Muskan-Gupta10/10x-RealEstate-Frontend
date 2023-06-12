@@ -14,10 +14,11 @@ export default function App(){
   return(
     <>
       <Routes>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/logout" element={<Logout/>}></Route>
-        <Route path="/" element={<PropertyView/>}></Route>
+        <Route path="/propertyview" element={<PropertyView/>}></Route>
+        
         <Route path="/basicinfo" element={<BasicInfo/>}></Route>
         <Route path="/generalinfo" element={<Generalinfo/>}></Route>
         <Route path="/propertydetails" element={<PropertyDetails/>}></Route>
