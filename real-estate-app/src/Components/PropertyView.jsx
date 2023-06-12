@@ -84,8 +84,7 @@ export default function PropertyView() {
           </form>
         </div>
         <div id="btncontainer">
-        
-        <Link to="basicinfo"><button id="addproperty">Add Property</button>
+        <Link to="/basicinfo"><button id="addproperty">Add Property</button>
         </Link>
         </div>
         <div className="property-table">

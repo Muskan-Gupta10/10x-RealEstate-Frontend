@@ -153,7 +153,7 @@ export default function BasicInfo() {
           </div>
           
         </div>
-        <Link to="propertyView">
+        <Link to="/propertyView">
             <button id="bt1">Cancel</button>
         </Link>
             <button id="bt2" onClick={handleSubmit}>Save & Continue</button>

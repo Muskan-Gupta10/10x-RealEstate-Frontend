@@ -15,8 +15,8 @@ export default function Generalinfo() {
     posted_by: "",
     sale_type: "",
     featured_package: "",
-    ppd_package: "",
-    image: "",
+    ppd_package: ""
+    // image: "",
 })
 
 
@@ -104,11 +104,11 @@ return(
   </select>
   </div>
 
-  <div className='image'>
+  {/* <div className='image'>
   <input  type="file" onChange={(e)=>{
    setdata({...data,image:e.target.files[0]})
   }} />
-  </div>
+  </div> */}
 
       </section>
 
