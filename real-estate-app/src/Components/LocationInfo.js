@@ -19,7 +19,7 @@ export default function LocationInfo() {
         longitude: "",
     })
     const [allData, setAllData] = useState({});
-    
+  
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -39,12 +39,12 @@ export default function LocationInfo() {
           ...data
         }
         setAllData(DATA)
-    
+        console.log(DATA);
     }
 
     useEffect(()=>{
-      fetch("",{
-        method:"Post",
+      fetch("http://localhost:8081/addProperty/addProperty",{
+        method:"POST",
         headers:{
           "Content-Type":"application/json"
         },

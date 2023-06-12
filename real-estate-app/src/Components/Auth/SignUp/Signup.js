@@ -86,9 +86,11 @@ export default function Signup() {
               type="password"
               placeholder="Confirm Password"
             />
-            <button type="submit" id="signup-button">
-              Sign Up
-            </button>
+            <Link className="signin-link" to="/">
+              <button type="submit" id="signup-button">
+                Sign Up
+              </button>
+            </Link>
           </form>
         </div>
 

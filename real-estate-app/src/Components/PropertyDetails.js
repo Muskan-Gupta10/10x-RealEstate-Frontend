@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/InfoHeader.css";
 import Navbar from "./Navbar";
 import "../Styles/PropertyDetails.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from './Header'
 
