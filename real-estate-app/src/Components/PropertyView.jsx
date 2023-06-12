@@ -5,15 +5,13 @@ import eye from "../Images/Navbar_Images/eye.png";
 import edit from "../Images/Table_Images/pencil.png";
 import property_image from "../Images/Table_Images/gallary.png";
 import Header from "./Header";
-import {Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function PropertyView() {
   let [propertyData,setPropertyData] = useState([]);
   let [searchValue, setSearchValue] = useState("");
   let [filteredData, setFilteredData] = useState([]);
   let [originalData,setOriginalData] = useState([]);
-
-  console.log("Triggered");
 
   useEffect(() => {
     getAll();
@@ -36,7 +34,7 @@ export default function PropertyView() {
   }
 
   function handleViews(index) {
-    setPropertyData((prevData) => {
+    setFilteredData((prevData) => {
       let updatedData = [...prevData];
       updatedData[index] = {
         ...updatedData[index],
@@ -120,11 +118,18 @@ export default function PropertyView() {
                       <td>{ele.view}</td>
                       <td>{ele.status}</td>
                       <td>{ele.city}</td>
-                      <td className="action_images"> 
-                        <img src={eye} alt="Not Found" className="table_image" onClick={() => {
-                          handleViews(index);
-                        }}/>
-                        <img src={edit} alt="Not Found" className="table_image" />
+                      <td className="action_images">
+                        <Link to={{
+                          pathname: "/viewcomponent",
+                          state: {data: ele}
+                        }}>
+                          <img src={eye} alt="Not Found" className="table_image" onClick={() => {
+                            handleViews(index);
+                          }}/>
+                        </Link>
+                        <Link to="/basicinfo">
+                          <img src={edit} alt="Not Found" className="table_image" />
+                        </Link>
                       </td>
                     </tr>
                   );

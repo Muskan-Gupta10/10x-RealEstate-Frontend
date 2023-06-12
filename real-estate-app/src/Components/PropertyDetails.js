@@ -14,7 +14,7 @@ const [data,setdata]=useState({
     total_area: "",
     area_unit: "",
     no_of_bhk: "",
-    no_of_floors: "",
+    no_of_floor: "",
     attached: "",
     western_toilet: "",
     furnished: "",
@@ -166,7 +166,7 @@ return(
             <div className="no_of_floors">
             <label for='no_of_floors'>No of Floors</label>
             <br/>
-            <input id='no_of_floors' placeholder='Select No of Floors' type="number" max={10} min={1} onChange={(e)=>setdata({...data, no_of_floors : e.target.value})}/>
+            <input id='no_of_floors' placeholder='Select No of Floors' type="number" max={10} min={1} onChange={(e)=>setdata({...data, no_of_floor : e.target.value})}/>
         </div>
 
         <div className="western_toilet">
