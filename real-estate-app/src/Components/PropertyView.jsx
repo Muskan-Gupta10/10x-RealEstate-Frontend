@@ -8,6 +8,11 @@ import Header from "./Header";
 
 export default function PropertyView() {
   let [propertyData,setPropertyData] = useState([]);
+  let [searchValue, setSearchValue] = useState("");
+  let [filteredData, setFilteredData] = useState([]);
+  let [originalData,setOriginalData] = useState([]);
+
+  console.log("Triggered");
 
   useEffect(() => {
     getAll();
@@ -24,6 +29,8 @@ export default function PropertyView() {
         status: parseInt(Math.random() * 10000) % 2 === 0 ? "Sold" : "UnSold"
       }));
       setPropertyData(updatedData);
+      setFilteredData(updatedData);
+      setOriginalData(updatedData);
     })
   }
 
@@ -38,18 +45,36 @@ export default function PropertyView() {
     });
   }
 
+  function searchClicked(e) {
+    e.preventDefault();
+
+    if(searchValue === "") {
+      setFilteredData(originalData);
+    }
+    else {
+      for(let i = 0; i < propertyData.length; i++) {
+        if(propertyData[i].propertyId === parseInt(searchValue)) {
+          setFilteredData([propertyData[i]]);
+        }
+      }
+    }
+  }
+
   return (
     <>
       <div className="property-view">
         <Navbar />
         <Header />
         <div className="searchbar">
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={searchClicked}>
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={(e) => {
+                setSearchValue(e.target.value)
+              }}
             />
             <button className="btn btn-outline-success" type="submit">
               Search
@@ -72,11 +97,10 @@ export default function PropertyView() {
               </tr>
             </thead>
             <tbody>
-              {propertyData.map((ele,index) => {
-                console.log(ele.status);
+              {filteredData.map((ele,index) => {
                   return (
-                    <tr key={ele.name}>
-                      <td>{ele.name}</td>
+                    <tr key={ele.propertyId}>
+                      <td>{ele.propertyId}</td>
                       <td>
                         <img
                           src={property_image}
