@@ -3,11 +3,11 @@ import "../Styles/InfoHeader.css";
 import Navbar from "./Navbar";
 import "../Styles/PropertyDetails.css";
 import { useState, useEffect } from "react";
-//import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from './Header'
 
 export default function PropertyDetails() {
-
+  const navigate=useNavigate()
 const [data,setdata]=useState({
     length: "",
     breadth: "",
@@ -28,7 +28,7 @@ const [data,setdata]=useState({
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("Property_Details", JSON.stringify(data));
-    //navigate("/propertydeatils");
+    navigate("/generalinfo");
    
   };
 
@@ -198,7 +198,10 @@ return(
        </div>
 
   </div>
+          <Link to="/basicinfo">
             <button id="bt1">Previous</button>
+          </Link>
+            
             <button id="bt2" onClick={handleSubmit}>Save & Continue</button>
     </div>
     <Navbar/>

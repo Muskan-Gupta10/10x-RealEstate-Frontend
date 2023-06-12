@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 export default function BasicInfo() {
- // const navigate=useNavigate()
+  const navigate=useNavigate()
  const [data, setdata] = useState({
   property_type: "",
   negotiable: "",
@@ -23,7 +23,7 @@ export default function BasicInfo() {
   const handleSubmit=(e)=>{
     e.preventDefault();
     localStorage.setItem("Basic_Info", JSON.stringify(data));
-    //navigate("/propertydeatils");
+    navigate("/propertydetails");
         
         }
      
@@ -153,7 +153,9 @@ export default function BasicInfo() {
           </div>
           
         </div>
-        <button id="bt1">Cancel</button>
+        <Link to="propertyView">
+            <button id="bt1">Cancel</button>
+        </Link>
             <button id="bt2" onClick={handleSubmit}>Save & Continue</button>
       
             </div>

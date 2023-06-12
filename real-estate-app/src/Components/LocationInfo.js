@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 export default function LocationInfo() {
-
+  const navigate=useNavigate()
     const [data,setdata]=useState({
         email: "",
         city: "",
@@ -56,7 +56,7 @@ export default function LocationInfo() {
         localStorage.removeItem("Basic_Info");
         localStorage.removeItem("Property_Details");
         localStorage.removeItem("General_Info");
-        //navigate("/home")
+        navigate("/propertyView")
       })
     },[allData])
     return(
@@ -172,7 +172,9 @@ export default function LocationInfo() {
           </section>
   </div>
   </div>
-            <button id="bt1">Previous</button>
+  <Link to="/generalinfo">
+  <button id="bt1">Previous</button>
+</Link>
             <button id="bt2" onClick={handleSubmit}>Add Property</button>
   </div>
   <Navbar/>

@@ -25,3 +25,22 @@
 .table_image {
     margin-left: 10px;
 }
+
+#btncontainer{
+    position: absolute;
+    margin-top: 20vh;
+    margin-left: 85vw;
+    
+    
+    
+    ;
+}
+#addproperty{
+    background-color:  #6AB4F8;
+    color:white;
+    border-radius: 50px;
+    font-weight: bold;
+    width:150px;
+    height:50px;
+    border-color: #6AB4F8;
+}

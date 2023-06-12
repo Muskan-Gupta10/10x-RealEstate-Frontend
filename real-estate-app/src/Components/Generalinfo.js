@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 export default function Generalinfo() {
-
+  const navigate=useNavigate()
   const [data,setdata]=useState({
     name: "",
     mobile: "",
@@ -23,7 +23,7 @@ export default function Generalinfo() {
 const handleSubmit=(e)=>{
     e.preventDefault();
     localStorage.setItem("General_Info", JSON.stringify(data));
-    //navigate("/propertydeatils");
+    navigate("/locationinfo");
 }
 return(
     <>
@@ -144,7 +144,9 @@ return(
       </section>
 </div>
 </div>
-        <button id="bt1">Previous</button>
+<Link to="/propertydetails">
+<button id="bt1">Previous</button>
+</Link>
         <button id="bt2" onClick={handleSubmit}>Save & Continue</button>
 </div>
 <Navbar/>

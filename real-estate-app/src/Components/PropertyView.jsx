@@ -5,6 +5,7 @@ import eye from "../Images/Navbar_Images/eye.png";
 import edit from "../Images/Table_Images/pencil.png";
 import property_image from "../Images/Table_Images/gallary.png";
 import Header from "./Header";
+import {Link } from "react-router-dom"
 
 export default function PropertyView() {
   let [propertyData,setPropertyData] = useState([]);
@@ -76,10 +77,16 @@ export default function PropertyView() {
                 setSearchValue(e.target.value)
               }}
             />
+            
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
           </form>
+        </div>
+        <div id="btncontainer">
+        
+        <Link to="basicinfo"><button id="addproperty">Add Property</button>
+        </Link>
         </div>
         <div className="property-table">
           <table className="table table-borderless table-space">
