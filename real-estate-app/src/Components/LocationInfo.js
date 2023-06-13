@@ -3,11 +3,11 @@ import "../Styles/InfoHeader.css";
 import Navbar from "./Navbar";
 import "../Styles/LocationInfo.css";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 export default function LocationInfo() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   let location = useLocation();
   let dataToEdit = location.state;
   console.log(dataToEdit);
@@ -24,6 +24,11 @@ export default function LocationInfo() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(data.email===""||data.city===""||data.area===""||data.pincode===""||data.address===""||data.landmark===""||data.latitude===""||data.longitude===""){
+      alert("Please fill all the details")
+      
+    }
+    else{
     const Basic_Info = JSON.parse(localStorage.getItem("Basic_Info"));
     const General_Info = JSON.parse(localStorage.getItem("General_Info"));
     const Property_Details = JSON.parse(
@@ -36,6 +41,7 @@ export default function LocationInfo() {
       ...data,
     };
     sendPost(DATA);
+  }
   };
 
   function sendPost(DATA) {
@@ -51,10 +57,16 @@ export default function LocationInfo() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .then(() => window.alert("Data Added Successfully"))
+      .then(()=>navigate("/propertyview"))
   }
 
   const handleEdit = (e) => {
     e.preventDefault();
+    if(data.email===""||data.city===""||data.area===""||data.pincode===""||data.address===""||data.landmark===""||data.latitude===""||data.longitude===""){
+      alert("Please fill all the details")
+      
+    }
+    else{
     const Basic_Info = JSON.parse(localStorage.getItem("Basic_Info"));
     const General_Info = JSON.parse(localStorage.getItem("General_Info"));
     const Property_Details = JSON.parse(
@@ -67,6 +79,7 @@ export default function LocationInfo() {
       ...data,
     };
     editPost(DATA);
+  }
   };
 
   function editPost(DATA) {
@@ -82,6 +95,7 @@ export default function LocationInfo() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .then(() => window.alert("Data Edited Successfully"))
+      .then(()=>navigate("/propertyview"))
   }
 
   return (
@@ -112,7 +126,15 @@ export default function LocationInfo() {
             </span>
 
             <span id="li">
-              <div style={{ marginTop: "10px", color: "white" }}>
+              <div style={{  color: "white" , width:"150px",
+              height: "50px",
+              background: "#6AB4F8",
+              boxShadow: "0px 13px 25px rgba(0, 0, 0, 0.15)",
+              borderRadius: "50px",
+              textAlign : "center",
+              paddingTop:"10px",
+              marginTop:"-3.5px"
+              }}>
                 <span
                   className="numbers"
                   style={{
