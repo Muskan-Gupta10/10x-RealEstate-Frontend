@@ -29,8 +29,14 @@ export default function PropertyDetails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(data.furnished===""||data.car_parking===""||data.lift===""||data.electricity===""||data.facing===""||data.length===""||data.breadth===""||data.total_area===""||data.area_unit===""||data.no_of_bhk===""||data.no_of_floor===""||data.attached===""||data.western_toilet===""){
+      alert("Please fill all the details")
+      
+    }
+    else{
     localStorage.setItem("Property_Details", JSON.stringify(data));
     navigate("/generalinfo" , {state: dataToEdit});
+    }
   };
 
   return (
@@ -49,7 +55,14 @@ export default function PropertyDetails() {
             </span>
 
             <span id="pd">
-              <div style={{ marginTop: "10px", color: "white" }}>
+              <div style={{  color: "white" , width:"170px",
+              height: "50px",
+              background: "#6AB4F8",
+              boxShadow: "0px 13px 25px rgba(0, 0, 0, 0.15)",
+              borderRadius: "50px",
+              textAlign : "center",
+              paddingTop:"10px"
+              }}>
                 <span
                   className="numbers"
                   style={{
@@ -79,7 +92,15 @@ export default function PropertyDetails() {
           </div>
         </div>
 
-        <div id="formContainer">
+        <div id="formContainer" style={{
+          position:"absolute",
+          backgroundColor:  "#F5F5F5",
+          height: "80vh",
+          width:"75vw",
+          marginTop: "250px",
+          marginLeft: "300px",
+          borderRadius: "20px",
+          color: "rgb(87, 80, 80)"}}>
           <div id="details">
             <section id="section1">
               <div className="length">
@@ -293,10 +314,10 @@ export default function PropertyDetails() {
           </div>
         </div>
         <Link to="/basicinfo">
-        {(!dataToEdit) && <button id="bt1">Previous</button>}
+        {(!dataToEdit) && <button id="bt1" style={{marginTop: "105vh"}}>Previous</button>}
         </Link>
 
-        <button id="bt2" onClick={handleSubmit}>
+        <button id="bt2" onClick={handleSubmit} style={{marginTop: "105vh"}}>
           Save & Continue
         </button>
       </div>

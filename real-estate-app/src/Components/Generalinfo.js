@@ -24,8 +24,14 @@ export default function Generalinfo() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(data.name===""||data.mobile===""||data.posted_by===""||data.sale_type===""||data.featured_package===""||data.ppd_package===""){
+      alert("Please fill all the details")
+      
+    }
+    else{
     localStorage.setItem("General_Info", JSON.stringify(data));
     navigate("/locationinfo", { state: dataToEdit });
+    }
   };
   return (
     <>
@@ -49,7 +55,15 @@ export default function Generalinfo() {
             </span>
 
             <span id="gi">
-              <div style={{ marginTop: "10px", color: "white" }}>
+              <div style={{  color: "white" , width:"150px",
+              height: "50px",
+              background: "#6AB4F8",
+              boxShadow: "0px 13px 25px rgba(0, 0, 0, 0.15)",
+              borderRadius: "50px",
+              textAlign : "center",
+              paddingTop:"10px",
+              marginTop:"-3.5px"
+              }}>
                 <span
                   className="numbers"
                   style={{
