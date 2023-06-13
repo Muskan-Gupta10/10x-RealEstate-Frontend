@@ -3,11 +3,14 @@ import "../Styles/InfoHeader.css";
 import Navbar from "./Navbar";
 import "../Styles/LocationInfo.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Header from "./Header";
 
 export default function LocationInfo() {
   // const navigate = useNavigate();
+  let location = useLocation();
+  let dataToEdit = location.state;
+  console.log(dataToEdit);
   const [data, setdata] = useState({
     email: "",
     city: "",
@@ -18,7 +21,6 @@ export default function LocationInfo() {
     latitude: "",
     longitude: "",
   });
-  const [allData, setAllData] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,25 +35,55 @@ export default function LocationInfo() {
       ...General_Info,
       ...data,
     };
-    setAllData(DATA);
-    // console.log(allData);
     sendPost(DATA);
   };
 
   function sendPost(DATA) {
-    // console.log(allData)
-    // console.log(JSON.stringify(allData))
     fetch("http://localhost:8081/addProperty/addProperty", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin" : "*" 
+        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify(DATA)
-    }).then((res) => res.json()).then((data) => console.log(data))
+      body: JSON.stringify(DATA),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then(() => window.alert("Data Added Successfully"))
   }
-  
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    const Basic_Info = JSON.parse(localStorage.getItem("Basic_Info"));
+    const General_Info = JSON.parse(localStorage.getItem("General_Info"));
+    const Property_Details = JSON.parse(
+      localStorage.getItem("Property_Details")
+    );
+    let DATA = {
+      ...Basic_Info,
+      ...Property_Details,
+      ...General_Info,
+      ...data,
+    };
+    editPost(DATA);
+  };
+
+  function editPost(DATA) {
+    fetch(`http://localhost:8081/addProperty/${DATA.name}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(DATA),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then(() => window.alert("Data Edited Successfully"))
+  }
+
   return (
     <>
       <Header />
@@ -108,7 +140,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="email"
-                  placeholder="Email"
+                  placeholder={dataToEdit ? dataToEdit.email : "Email"}
                   type="text"
                   onChange={(e) => setdata({ ...data, email: e.target.value })}
                 />
@@ -121,7 +153,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="area"
-                  placeholder="Area"
+                  placeholder={dataToEdit ? dataToEdit.area : "Area"}
                   type="text"
                   onChange={(e) => setdata({ ...data, area: e.target.value })}
                 />
@@ -134,7 +166,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="address"
-                  placeholder="Address"
+                  placeholder={dataToEdit ? dataToEdit.address : "Address"}
                   type="text"
                   onChange={(e) =>
                     setdata({ ...data, address: e.target.value })
@@ -149,7 +181,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="latitude"
-                  placeholder="Latitude"
+                  placeholder={dataToEdit ? dataToEdit.latitude : "Latitude"}
                   type="text"
                   onChange={(e) =>
                     setdata({ ...data, latitude: e.target.value })
@@ -183,7 +215,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="pincode"
-                  placeholder="Pincode"
+                  placeholder={dataToEdit ? dataToEdit.pincode : "Pincode"}
                   type="text"
                   onChange={(e) =>
                     setdata({ ...data, pincode: e.target.value })
@@ -198,7 +230,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="landmark"
-                  placeholder="Landmark"
+                  placeholder={dataToEdit ? dataToEdit.landmark : "Landmark"}
                   type="text"
                   onChange={(e) =>
                     setdata({ ...data, landmark: e.target.value })
@@ -213,7 +245,7 @@ export default function LocationInfo() {
                 <br />
                 <input
                   id="longitude"
-                  placeholder="Longitude"
+                  placeholder={dataToEdit ? dataToEdit.email : "Longitude"}
                   type="text"
                   onChange={(e) =>
                     setdata({ ...data, longitude: e.target.value })
@@ -224,11 +256,22 @@ export default function LocationInfo() {
           </div>
         </div>
         <Link to="/generalinfo">
-          <button id="bt1">Previous</button>
+          {!dataToEdit && <button id="bt1">Previous</button>}
         </Link>
-        <button id="bt2" onClick={handleSubmit}>
-          Add Property
-        </button>
+        {!dataToEdit && (
+          <Link to="/propertyview">
+            <button id="bt2" onClick={handleSubmit}>
+              Add Property
+            </button>
+          </Link>
+        )}
+        {dataToEdit && (
+          <Link to="/propertyview">
+            <button id="bt2" onClick={handleEdit}>
+              Edit Property
+            </button>
+          </Link>
+        )}
       </div>
       <Navbar />
     </>
