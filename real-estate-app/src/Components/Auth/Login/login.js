@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import "./login.css";
 
-export default function LoginForm() {
+export default function Login() {
   const [loginDetails, setLoginDetails] = useState({});
   const [dataSent, setDataSent] = useState(false);
   const [cookies, setCookie] = useCookies([]);
@@ -22,7 +22,7 @@ export default function LoginForm() {
   useEffect(() => {
     const userLogin = () => {
       axios
-        .post("", loginDetails)// this line need to be changed
+        .post("http://localhost:8081/signupLoginRoute/login", loginDetails)// this line need to be changed
         .then((response) => {
           let token = response.data.authToken;
           setCookie("jwt", token, {
@@ -30,7 +30,7 @@ export default function LoginForm() {
             expires: new Date(Date.now() + 3.6e6),
           });
 
-          navigate("/");
+          navigate("/propertyview");
         })
         .catch((err) => {
           console.log(err);
