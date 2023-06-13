@@ -3,12 +3,15 @@ import "../Styles/InfoHeader.css";
 import Navbar from "./Navbar";
 import "../Styles/Generalinfo.css";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 export default function Generalinfo() {
   const navigate = useNavigate();
+  let location = useLocation();
+
+  let dataToEdit = location.state;
+  console.log(dataToEdit);
   const [data, setdata] = useState({
     name: "",
     mobile: "",
@@ -22,7 +25,7 @@ export default function Generalinfo() {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("General_Info", JSON.stringify(data));
-    navigate("/locationinfo");
+    navigate("/locationinfo", { state: dataToEdit });
   };
   return (
     <>
@@ -80,7 +83,7 @@ export default function Generalinfo() {
                 <br />
                 <input
                   id="name"
-                  placeholder="Name"
+                  placeholder={dataToEdit ? dataToEdit.mobile : "Name"}
                   type="text"
                   onChange={(e) => setdata({ ...data, name: e.target.value })}
                 />
@@ -135,7 +138,9 @@ export default function Generalinfo() {
                 <br />
                 <input
                   id="mobile"
-                  placeholder="Enter Mobile Number"
+                  placeholder={
+                    dataToEdit ? dataToEdit.mobile : "Enter Mobile Number"
+                  }
                   type="text"
                   onChange={(e) => setdata({ ...data, mobile: e.target.value })}
                 />
@@ -179,13 +184,14 @@ export default function Generalinfo() {
           </div>
         </div>
         <Link to="/propertydetails">
-          <button id="bt1">Previous</button>
+          {!dataToEdit && <button id="bt1">Previous</button>}
         </Link>
         <button id="bt2" onClick={handleSubmit}>
           Save & Continue
         </button>
       </div>
       <Navbar />
+      <h6 className="alert_for_name">Please keep the Name and mobile Same. Else Database will not be updated</h6>
     </>
   );
 }
