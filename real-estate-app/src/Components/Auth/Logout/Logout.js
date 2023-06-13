@@ -8,7 +8,7 @@ const Logout = () => {
 
   const handleLogout = () => {
     setCookie("jwt", "");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
