@@ -24,7 +24,7 @@ export default function PropertyView() {
     .then((e) => {
       let updatedData = e.data.map((item) => ({
         ...item,
-        view: 0,
+        view: parseInt(Math.random() * 10) ,
         status: parseInt(Math.random() * 10000) % 2 === 0 ? "Sold" : "UnSold"
       }));
       setPropertyData(updatedData);
@@ -33,16 +33,16 @@ export default function PropertyView() {
     })
   }
 
-  function handleViews(index) {
-    setFilteredData((prevData) => {
-      let updatedData = [...prevData];
-      updatedData[index] = {
-        ...updatedData[index],
-        view: updatedData[index].view + 1
-      }
-      return updatedData;
-    });
-  }
+  // function handleViews(index) {
+  //   setFilteredData((prevData) => {
+  //     let updatedData = [...prevData];
+  //     updatedData[index] = {
+  //       ...updatedData[index],
+  //       view: updatedData[index].view + 1
+  //     }
+  //     return updatedData;
+  //   });
+  // }
 
   function searchClicked(e) {
     e.preventDefault();
@@ -119,15 +119,10 @@ export default function PropertyView() {
                       <td>{ele.status}</td>
                       <td>{ele.city}</td>
                       <td className="action_images">
-                        <Link to={{
-                          pathname: "/viewcomponent",
-                          state: {data: ele}
-                        }}>
-                          <img src={eye} alt="Not Found" className="table_image" onClick={() => {
-                            handleViews(index);
-                          }}/>
+                        <Link to="/viewcomponent" state={ele}>
+                          <img src={eye} alt="Not Found" className="table_image"/>
                         </Link>
-                        <Link to="/basicinfo">
+                        <Link to="/basicinfo" state={ele}>
                           <img src={edit} alt="Not Found" className="table_image" />
                         </Link>
                       </td>

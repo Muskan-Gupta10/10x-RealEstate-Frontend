@@ -10,7 +10,6 @@ import Logout from './Components/Auth/Logout/Logout'
 import Signup from './Components/Auth/SignUp/Signup'
 import ViewComponent from "./Components/ViewComponent";
 
-
 export default function App(){
   return(
     <>
