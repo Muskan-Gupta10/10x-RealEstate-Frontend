@@ -79,3 +79,8 @@ padding-left: 50px;
     border-radius: 5px;
     border-color: lightgray ;
 }
+
+.alert_for_name {
+    color: red;
+    margin-left: 60%;
+}
