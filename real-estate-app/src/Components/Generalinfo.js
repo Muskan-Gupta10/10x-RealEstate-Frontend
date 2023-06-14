@@ -10,6 +10,15 @@ export default function Generalinfo() {
   const navigate = useNavigate();
   let location = useLocation();
 
+  function convertToBase64(e) {
+    let reader = new FileReader();
+    reader.onload = () => {
+      setdata({ ...data, image: reader.result });
+      console.log(reader.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  }
+
   let dataToEdit = location.state;
   console.log(dataToEdit);
   const [data, setdata] = useState({
@@ -19,7 +28,7 @@ export default function Generalinfo() {
     sale_type: "",
     featured_package: "",
     ppd_package: "",
-    // image: "",
+    image: "",
   });
 
   const handleSubmit = (e) => {
@@ -137,11 +146,12 @@ export default function Generalinfo() {
                 </select>
               </div>
 
-              {/* <div className='image'>
-  <input  type="file" onChange={(e)=>{
-   setdata({...data,image:e.target.files[0]})
-  }} />
-  </div> */}
+              {!dataToEdit && <div className="image">
+              <input
+                type="file"
+                onChange={convertToBase64}
+              />
+            </div>}
             </section>
 
             <section id="section2">

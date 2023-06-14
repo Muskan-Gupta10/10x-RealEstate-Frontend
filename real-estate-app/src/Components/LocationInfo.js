@@ -45,7 +45,7 @@ export default function LocationInfo() {
   };
 
   function sendPost(DATA) {
-    fetch("http://localhost:8081/addProperty/addProperty", {
+    fetch("https://one0x-realestate-backend1.onrender.com/addProperty/addProperty", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,11 +62,7 @@ export default function LocationInfo() {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    if(data.email===""||data.city===""||data.area===""||data.pincode===""||data.address===""||data.landmark===""||data.latitude===""||data.longitude===""){
-      alert("Please fill all the details")
-      
-    }
-    else{
+    
     const Basic_Info = JSON.parse(localStorage.getItem("Basic_Info"));
     const General_Info = JSON.parse(localStorage.getItem("General_Info"));
     const Property_Details = JSON.parse(
@@ -79,11 +75,10 @@ export default function LocationInfo() {
       ...data,
     };
     editPost(DATA);
-  }
   };
 
   function editPost(DATA) {
-    fetch(`http://localhost:8081/addProperty/${DATA.name}`, {
+    fetch(`https://one0x-realestate-backend1.onrender.com/addProperty/${DATA.name}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
