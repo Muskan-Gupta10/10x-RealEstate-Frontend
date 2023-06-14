@@ -31,7 +31,7 @@ export default function Signup() {
     const userSignup = () => {
       axios({
         method: "post",
-        url: "http://localhost:8081/signupLoginRoute/signup",
+        url: "https://one0x-realestate-backend1.onrender.com/signupLoginRoute/signup",
         data: signupDetails,
       })
         .then((response) => {
@@ -71,6 +71,7 @@ export default function Signup() {
               required={true}
               name="email"
               placeholder="Email Address"
+              style={{width: "20vw"}}
             />
             <input
               id="password"

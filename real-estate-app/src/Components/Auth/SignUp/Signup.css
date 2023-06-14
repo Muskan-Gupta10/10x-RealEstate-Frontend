@@ -62,6 +62,7 @@ input {
 #email {
   text-align: start;
   border: 2px solid #e5e1e1;
+  
 }
 
 #password, #cpassword {

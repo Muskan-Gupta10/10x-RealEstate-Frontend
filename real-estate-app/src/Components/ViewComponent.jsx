@@ -10,7 +10,7 @@ export default function ViewComponent() {
   return (
     <>
       <div className="title">
-        <h1>Information of property with UserId ID</h1>
+        <h1>Information of property with UserId {dataToDisplay.propertyId}</h1>
       </div>
       <div className="show-table">
         <table class="table table-hover">

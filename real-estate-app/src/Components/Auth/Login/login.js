@@ -22,7 +22,7 @@ export default function Login() {
   useEffect(() => {
     const userLogin = () => {
       axios
-        .post("http://localhost:8081/signupLoginRoute/login", loginDetails)// this line need to be changed
+        .post("https://one0x-realestate-backend1.onrender.com/signupLoginRoute/login", loginDetails)// this line need to be changed
         .then((response) => {
           let token = response.data.authToken;
           setCookie("jwt", token, {
@@ -34,8 +34,8 @@ export default function Login() {
         })
         .catch((err) => {
           console.log(err);
-          if (err.response.data === "User doesn't exist!") {
-            window.alert("User doesn't exist!");
+          if (err.response.data === "User doesn't exists!") {
+            window.alert("User doesn't exists!");
           } else if (err.response.data === "Incorrect password") {
             window.alert("Incorrect password");
           }

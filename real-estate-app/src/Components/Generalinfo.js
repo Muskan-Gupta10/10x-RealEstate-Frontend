@@ -28,7 +28,7 @@ export default function Generalinfo() {
     sale_type: "",
     featured_package: "",
     ppd_package: "",
-    image: ""
+    image: "",
   });
 
   const handleSubmit = (e) => {
@@ -147,11 +147,11 @@ export default function Generalinfo() {
               </div>
 
               {!dataToEdit && <div className="image">
-                <input
-                  type="file"
-                  onChange={convertToBase64}
-                />
-              </div>}
+              <input
+                type="file"
+                onChange={convertToBase64}
+              />
+            </div>}
             </section>
 
             <section id="section2">

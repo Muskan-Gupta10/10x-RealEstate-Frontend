@@ -106,13 +106,13 @@ export default function PropertyView() {
                     <tr key={ele.propertyId}>
                       <td>{ele.propertyId}</td>
                       <td>
-                        <Link to="/viewimage" state={ele.image}>
-                          <img
-                            src={property_image}
-                            alt="not found"
-                            className="table_image"
-                          />
-                        </Link>
+                      <Link to="/viewimage" state={ele.image}>
+                      <img
+                        src={property_image}
+                        alt="not found"
+                        className="table_image"
+                      />
+                    </Link>
                       </td>
                       <td>{ele.property_type}</td>
                       <td>{ele.mobile}</td>
