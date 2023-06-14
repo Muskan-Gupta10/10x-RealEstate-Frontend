@@ -5,10 +5,11 @@ import PropertyView from './Components/PropertyView'
 import Generalinfo from "./Components/Generalinfo"
 import LocationInfo from './Components/LocationInfo'
 import BasicInfo from './Components/BasicInfo'
-import Login from './Components/Auth/Login/Login'
+import Login from './Components/Auth/Login/login'
 import Signup from './Components/Auth/SignUp/Signup'
 import ViewComponent from "./Components/ViewComponent";
 import Protected from "./Components/protected";
+import ImageDisplay from "./Components/ImageDisplay";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
             </Protected>
           }
         ></Route>
+        <Route path="/viewimage" element={<ImageDisplay />} />
       </Routes>
     </>
   );
