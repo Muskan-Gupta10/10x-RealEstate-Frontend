@@ -1,18 +1,18 @@
 import React from "react";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import PropertyDetails from './Components/PropertyDetails'
 import PropertyView from './Components/PropertyView'
 import Generalinfo from "./Components/Generalinfo"
 import LocationInfo from './Components/LocationInfo'
 import BasicInfo from './Components/BasicInfo'
-import Login from './Components/Auth/Login/Login'
+import LoginForm from './Components/Auth/Login/LoginForm'
+import Logout from './Components/Auth/Logout/Logout'
 import Signup from './Components/Auth/SignUp/Signup'
 import ViewComponent from "./Components/ViewComponent";
 import ImageDisplay from "./Components/ImageDisplay";
-import Protected from "./Components/protected";
 
-function App() {
-  return (
+export default function App(){
+  return(
     <>
     <BrowserRouter>
         <Routes>
@@ -28,59 +28,6 @@ function App() {
           <Route path="/viewimage" element={<ImageDisplay />} />
         </Routes>
       </BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login></Login>}></Route>
-        <Route path="/signup" element={<Signup></Signup>}></Route>
-        <Route
-          path="/propertyview"
-          element={
-            <Protected>
-              <PropertyView />
-            </Protected>
-          }
-        ></Route>
-        <Route
-          path="/basicinfo"
-          element={
-            <Protected>
-              <BasicInfo />
-            </Protected>
-          }
-        ></Route>
-        <Route
-          path="/generalinfo"
-          element={
-            <Protected>
-              <Generalinfo />
-            </Protected>
-          }
-        ></Route>
-        <Route
-          path="/propertydetails"
-          element={
-            <Protected>
-              <PropertyDetails />
-            </Protected>
-          }
-        ></Route>
-		<Route
-          path="/locationinfo"
-          element={
-            <Protected>
-              <LocationInfo />
-            </Protected>
-          }
-        ></Route>
-		<Route
-          path="/viewcomponent"
-          element={
-            <Protected>
-              <ViewComponent />
-            </Protected>
-          }
-        ></Route>
-      </Routes>
     </>
-  );
+  )
 }
-export default App;
