@@ -3,11 +3,11 @@ import "../Styles/InfoHeader.css";
 import Navbar from "./Navbar";
 import "../Styles/LocationInfo.css";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation ,useNavigate} from "react-router-dom";
 import Header from "./Header";
 
 export default function LocationInfo() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   let location = useLocation();
   let dataToEdit = location.state;
   console.log(dataToEdit);
@@ -51,6 +51,7 @@ export default function LocationInfo() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .then(() => window.alert("Data Added Successfully"))
+      navigate("/propertyview")
   }
 
   const handleEdit = (e) => {

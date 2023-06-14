@@ -9,6 +9,7 @@ import LoginForm from './Components/Auth/Login/LoginForm'
 import Logout from './Components/Auth/Logout/Logout'
 import Signup from './Components/Auth/SignUp/Signup'
 import ViewComponent from "./Components/ViewComponent";
+import ImageDisplay from "./Components/ImageDisplay";
 
 export default function App(){
   return(
@@ -24,6 +25,7 @@ export default function App(){
           <Route path="/propertydetails" element={<PropertyDetails/>}></Route>
           <Route path="/locationinfo" element={<LocationInfo/>}></Route>
           <Route path="/viewcomponent" element={<ViewComponent />} />
+          <Route path="/viewimage" element={<ImageDisplay />} />
         </Routes>
       </BrowserRouter>
     </>
