@@ -16,7 +16,11 @@
 
 .username {
     float: right;
-    margin-right: 3%;
+    margin-right: 12%;
     margin-top: 4%;
     color:  #B4B4C6;
+}
+
+.logout {
+    float: right;
 }

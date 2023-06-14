@@ -31,12 +31,12 @@ export default function Signup() {
     const userSignup = () => {
       axios({
         method: "post",
-        url: "", // this line should be changed
+        url: "http://localhost:8081/signupLoginRoute/signup",
         data: signupDetails,
       })
         .then((response) => {
           window.alert("User created successfully!\nPlease Login First.");
-          navigate("/login");
+          navigate("/");
         })
         .catch((err) => {
           if (err.response.data === "User already exists!") {
@@ -86,11 +86,9 @@ export default function Signup() {
               type="password"
               placeholder="Confirm Password"
             />
-            <Link className="signin-link" to="/">
-              <button type="submit" id="signup-button">
-                Sign Up
-              </button>
-            </Link>
+            <button type="submit" id="signup-button">
+              Sign Up
+            </button>
           </form>
         </div>
 

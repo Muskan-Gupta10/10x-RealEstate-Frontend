@@ -30,7 +30,7 @@ export default function LoginForm() {
             expires: new Date(Date.now() + 3.6e6),
           });
 
-          navigate("/");
+          navigate("/propertyview");
         })
         .catch((err) => {
           console.log(err);

@@ -22,10 +22,18 @@ export default function BasicInfo() {
     bank_loan: "",
   });
 
+
   const handleSubmit = (e) => {
+
     e.preventDefault();
+    if(data.property_type===""||data.negotiable===""||data.price===""||data.ownership===""||data.property_age===""||data.property_approved===""||data.property_description===""||data.bank_loan===""){
+      alert("Please fill all the details")
+      
+    }
+    else{
     localStorage.setItem("Basic_Info", JSON.stringify(data));
     navigate("/propertydetails", { state: dataToEdit });
+    }
   };
 
   return (
@@ -38,7 +46,15 @@ export default function BasicInfo() {
           </div>
           <div className="sections">
             <span id="bi">
-              <div style={{ marginTop: "10px", color: "white" }}>
+              <div style={{  color: "white" , width:"150px",
+              height: "50px",
+              background: "#6AB4F8",
+              boxShadow: "0px 13px 25px rgba(0, 0, 0, 0.15)",
+              borderRadius: "50px",
+              textAlign : "center",
+              paddingTop:"10px"
+              }}>
+              
                 <span
                   id="numbers"
                   style={{
@@ -46,6 +62,7 @@ export default function BasicInfo() {
                     backgroundColor: "white",
                     color: "black",
                     padding: "0px 6px 0px 6px",
+                    
                   }}
                 >
                   1
@@ -74,8 +91,8 @@ export default function BasicInfo() {
           </div>
         </div>
 
-        <div id="formContainer">
-          <div id="details">
+        <div id="formContainer" >
+          <div id="details" >
             <section id="section1">
               <div className="propertyType">
                 <label for="propertyType">Property Type</label>
@@ -102,6 +119,7 @@ export default function BasicInfo() {
                 <input
                   id="price"
                   placeholder={dataToEdit ? dataToEdit.price : "Example : 10000"}
+                  //placeholder="Example : 10000"
                   type="text"
                   onChange={(e) => setdata({ ...data, price: e.target.value })}
                   required

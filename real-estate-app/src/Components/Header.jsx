@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Styles/header.css"
+import Logout from './Auth/Logout/Logout';
 
 export default function Header() {
   return (
@@ -12,6 +13,7 @@ export default function Header() {
               <option value="user3">User 3</option>
             </select>
           </div>
+          <Logout className="logout"/>
         </div>
   )
 }
