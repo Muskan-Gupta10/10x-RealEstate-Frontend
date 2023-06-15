@@ -18,7 +18,7 @@ export default function PropertyView() {
   },[]);
 
   function getAll() {
-    fetch("http://localhost:8081/postDetails/getAll", {
+    fetch("https://one0x-realestate-backend1.onrender.com/postDetails/getAll", {
       method: "GET",
     }).then((res) => res.json())
     .then((e) => {
