@@ -22,7 +22,7 @@ export default function Login() {
   useEffect(() => {
     const userLogin = () => {
       axios
-        .post("https://one0x-realestate-backend1.onrender.com/signupLoginRoute/login", loginDetails)// this line need to be changed
+        .post("http://localhost:8081/signupLoginRoute/login", loginDetails)
         .then((response) => {
           let token = response.data.authToken;
           setCookie("jwt", token, {

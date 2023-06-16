@@ -45,7 +45,7 @@ export default function LocationInfo() {
   };
 
   function sendPost(DATA) {
-    fetch("https://one0x-realestate-backend1.onrender.com/addProperty/addProperty", {
+    fetch("http://localhost:8081/addProperty/addProperty", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export default function LocationInfo() {
   };
 
   function editPost(DATA) {
-    fetch(`https://one0x-realestate-backend1.onrender.com/addProperty/${DATA.name}`, {
+    fetch(`http://localhost:8081/addProperty/${DATA.name}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

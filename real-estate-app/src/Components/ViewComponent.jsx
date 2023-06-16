@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 export default function ViewComponent() {
   let location = useLocation();
-
   let dataToDisplay = location.state;
 
   return (
